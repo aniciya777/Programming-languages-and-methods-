@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Задание 1</title>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/jquery-ui/jquery-ui.min.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/jquery-validate/jquery.validate.min.js"></script>
+    <script src="js/jquery-validate/additional-methods.min.js"></script>
+    <link rel="stylesheet" href="js/jquery-ui/jquery-ui.min.css">
+    <link rel="stylesheet" href="js/jquery-ui/jquery-ui.structure.min.css">
+    <link rel="stylesheet" href="js/jquery-ui/jquery-ui.theme.min.css">
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+<h1>
+    Задание 1.
+</h1>
+<h3>
+    (10 баллов)
+</h3>
+<p>
+    Создать форму для внесения большого числа данных, разместив отдельные ее
+    части на разных панелях.
+</p>
+<hr>
+<p>
+    Внесение данных о заказе роллов и суши:
+</p>
+<ul>
+    <li>
+        На первой панели: состав заказа
+    </li>
+    <li>
+        На второй панели: детали доставки
+    </li>
+    <li>
+        На третьей панели: дополнительные сведения
+    </li>
+</ul>
+<hr>
+<form action="#">
+    <div id="accordion">
+        <h3>Состав заказа</h3>
+        <div>
+            <table id="consist">
+                <caption>Соберите свой заказ</caption>
+                <thead>
+                    <tr>
+                        <th class="w100">Название</th>
+                        <th>Цена</th>
+                        <th>Количество</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <h3>Детали доставки</h3>
+        <div>
+            <p>
+                <label for="address" class="w100">
+                    Адрес доставки (обязательно)
+                </label>
+                <input type="text" name="address" id="address" required>
+            </p>
+            <p>
+                <label for="time">
+                    Время доставки - через
+                </label>
+                <input type="number" name="time" id="time" value=1 min=1 max=24>
+                <span>
+                    час(а)
+                </span>
+            </p>
+            <p>
+                Стоимость доставки:
+            </p>
+            <p>
+                <strong id="price_delivery">
+                </strong>
+            </p>
+        </div>
+        <h3>Дополнительные сведения</h3>
+        <div>
+            <p>
+                <label for="phone">
+                    Ваш телефон (обязательно)
+                </label>
+                <input type="tel" name="phone" id="phone" class="w100" required>
+            </p>
+            <p>
+                <label for="email" class="w100">
+                    Ваша почта
+                </label>
+                <input type="email" name="email" id="email" class="w100">
+            </p>
+            <p>
+                <label for="count_stick">
+                    Количество палочек
+                </label>
+                <input type="number" name="count_stick" id="count_stick" value=1 min=1 max=10>
+            </p>
+        </div>
+    </div>
+    <div id="total_price">
+        <div>
+            Стоимость заказа:
+            <strong></strong>
+        </div>
+    </div>
+    <div>
+        <button id="submit">Создать заказ</button>
+    </div>
+</form>
+<br>
+<table id="orders_table">
+    <caption>Ваши заказы:</caption>
+    <thead>
+        <tr>
+            <th>Дата и время<br>заказа</th>
+            <th>Дата и время<br>доставки</th>
+            <th>Состав заказа</th>
+            <th>Адрес</th>
+            <th>К-во<br>палочек</th>
+            <th>Телефон</th>
+            <th>Почта</th>
+            <th>Сумма</th>
+            <th>Стоимость<br>доставки</th>
+            <th>Итого</th>
+        </tr>
+    </thead>
+    <tbody id="orders_tbody">
+    </tbody>
+</table>
+<br>
+<script src="js/script.js"></script>
+</body>
+</html>

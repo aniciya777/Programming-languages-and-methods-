@@ -1,0 +1,29 @@
+table {
+    border-collapse: collapse;
+}
+
+td, th {
+    border: solid #5c5c5c 1px;
+    padding: 2px 5px;
+}
+
+button {
+    font-size: 16pt;
+    border: solid 1px #4936c1;
+    border-radius: 5px;
+    padding: 5px 30px;
+    color: white;
+    background-color: #007fff;
+    margin: 15px auto;
+    box-shadow: black 1px 2px 8px 1px;
+    display: block;
+}
+
+.ui-dialog-buttonset, .ui-dialog-buttonset button {
+    width: 100%;
+}
+
+.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button {
+    width: 100%;
+    margin: 5px 0 20px;
+}

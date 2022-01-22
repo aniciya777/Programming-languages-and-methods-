@@ -1,0 +1,36 @@
+.slider {
+    position: relative;
+    width: 520px;
+    height: 340px;
+}
+
+.slider > div {
+    display: flex;
+}
+
+.slider_images {
+    width: 480px;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+}
+
+.slider_before, .slider_after {
+    color: white;
+    background-color: black;
+    display: block;
+    width: 20px;
+    padding: 130px 0;
+    font-weight: 500;
+}
+
+.slider_before a, .slider_after a {
+    margin: 0 5px;
+    text-decoration: none;
+}
+
+.slider_container {
+    position: absolute;
+    left: 0px;
+    display: flex;
+}

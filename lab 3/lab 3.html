@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Тема «Классы и модули»</title>
+    <link rel="stylesheet" href="./js/jquery-ui/jquery-ui.min.css">
+    <link rel="stylesheet" href="./js/jquery-ui/jquery-ui.structure.min.css">
+    <link rel="stylesheet" href="./js/jquery-ui/jquery-ui.theme.min.css">
+    <link rel="stylesheet" href="./css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/styles.css">
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script src="./js/jquery-ui/jquery-ui.min.js"></script>
+    <script src="./js/jquery-ui/datepicker-ru.js"></script>
+    <script src="./js/jquery.mask.js"></script>
+    <script src="./js/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="./js/train/main.js" type="module"></script>
+</head>
+<body>
+<header>
+    <div class="navbar navbar-light bg-light shadow-sm">
+        <div class="container">
+            <a href="#" class="navbar-brand d-flex align-items-center">
+                <strong>
+                    Тема «Классы и модули»
+                </strong>
+            </a>
+        </div>
+    </div>
+</header>
+<div class="container">
+    <div class="row">
+        <h3>
+            Задание 1.
+        </h3>
+        <p>
+            (10 баллов)
+        </p>
+        <p>
+            Создать систему классов, реализующих предметную область:
+        </p>
+        <ul>
+            <li>
+                Билеты на поезд
+            </li>
+        </ul>
+        <p>
+            Каждый класс реализовать в отдельном модуле. Основной модуль программы
+            должен демонстрировать базовый функционал в зависимости от предметной
+            области:
+        </p>
+        <ul>
+            <li>поиск рейсов</li>
+            <li>предоставить список станций</li>
+            <li>добавление новой станции</li>
+            <li>удаление одной или нескольких станций</li>
+            <li>предоставить список рейсов</li>
+            <li>добавление нового рейса</li>
+        </ul>
+        <p>
+            Дополнительно 10 баллов можно получить за реализацию web интерфейса
+            основной программы.
+        </p>
+    </div>
+    <hr>
+    <div class="row">
+        <a class="btn btn-dark" data-bs-toggle="collapse" href="#collapseStations" role="button" aria-expanded="false"
+           aria-controls="collapseStations">
+            Настройки городов
+        </a>
+        <div class="collapse" id="collapseStations">
+            <div class="card card-body">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Название города или станции" name="new-station">
+                    <button class="btn btn-dark" type="button" id="btn-add-new-station">
+                        Добавить
+                    </button>
+                </div>
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-dark" id="btn-select-all-stations">
+                        Выделить все
+                    </button>
+                    <button type="button" class="btn btn-dark" id="btn-deselect-all-stations">
+                        Отменить выделение
+                    </button>
+                    <button type="button" class="btn btn-dark" id="btn-remove-stations">
+                        Удалить выделенные
+                    </button>
+                </div>
+                <div class="list-group" id="stationList">
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <a class="btn btn-dark" data-bs-toggle="collapse" href="#collapseFlights" role="button" aria-expanded="false"
+           aria-controls="collapseFlights">
+            Настройки рейсов
+        </a>
+        <div class="collapse" id="collapseFlights">
+            <div class="card card-body">
+                <form class="row g-3" id="form-new-flight" method="post">
+                    <p>
+                        Создание нового рейса
+                    </p>
+                    <div class="col-md-6">
+                        <label for="new-from-station" class="form-label">
+                            Станция отправления
+                        </label>
+                        <select class="form-control" id="new-from-station" required>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="new-to-station" class="form-label">
+                            Станция прибытия
+                        </label>
+                        <select class="form-control" id="new-to-station" required>
+                        </select>
+                    </div>
+                    <div class="col-12">
+                        <label for="start-time" class="form-label">
+                            Время отправления
+                        </label>
+                        <input type="time" class="form-control" id="start-time" name="start-time" required>
+                    </div>
+                    <div class="col-12">
+                        <label for="new-price" class="form-label">Стоимость проезда</label>
+                        <div class="input-group">
+                            <input type="text" name="new-price" id="new-price" class="form-control" aria-describedby="new-price" required>
+                            <div class="input-group-text">₽</div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <span>Длительность</span>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="new-duration-days" class="form-label">
+                            полных дней: <strong>0</strong>
+                        </label>
+                        <input type="range" min="0" max="14" value="0" class="form-control duration-control" id="new-duration-days" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="new-duration-hourses" class="form-label">
+                            часов: <strong>0</strong>
+                        </label>
+                        <input type="range" min="0" max="23" value="0" class="form-control duration-control" id="new-duration-hourses" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="new-duration-minutes" class="form-label">
+                            минут: <strong>0</strong>
+                        </label>
+                        <input type="range" min="0" max="59" value="0" class="form-control duration-control" id="new-duration-minutes" required>
+                    </div>
+                    <div class="col-md-12">
+                        <span>Расписание</span>
+                    </div>
+                    <div class="btn-group" role="group" id="new-week-group">
+                        <input type="checkbox" class="btn-check" id="new-day-0" autocomplete="off">
+                        <label class="btn btn-outline-dark" for="new-day-0">Пн</label>
+
+                        <input type="checkbox" class="btn-check" id="new-day-1" autocomplete="off">
+                        <label class="btn btn-outline-dark" for="new-day-1">Вт</label>
+
+                        <input type="checkbox" class="btn-check" id="new-day-2" autocomplete="off">
+                        <label class="btn btn-outline-dark" for="new-day-2">Ср</label>
+
+                        <input type="checkbox" class="btn-check" id="new-day-3" autocomplete="off">
+                        <label class="btn btn-outline-dark" for="new-day-3">Чт</label>
+
+                        <input type="checkbox" class="btn-check" id="new-day-4" autocomplete="off">
+                        <label class="btn btn-outline-dark" for="new-day-4">Пт</label>
+
+                        <input type="checkbox" class="btn-check" id="new-day-5" autocomplete="off">
+                        <label class="btn btn-outline-dark" for="new-day-5">Сб</label>
+
+                        <input type="checkbox" class="btn-check" id="new-day-6" autocomplete="off">
+                        <label class="btn btn-outline-dark" for="new-day-6">Вс</label>
+                    </div>
+
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-dark" id="btn-new-flight">
+                            Добавить
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div id="find-input-group" class="input-group mb-3">
+            <label for="fromStationList" class="input-group-text bg-dark text-light">Из</label>
+            <input class="form-control" list="fromStationListOptions" id="fromStationList" placeholder="Пункт отправления...">
+            <datalist id="fromStationListOptions">
+            </datalist>
+
+            <label for="toStationList" class="input-group-text bg-dark text-light">В</label>
+            <input class="form-control" list="toStationListOptions" id="toStationList" placeholder="Пункт назначения...">
+            <datalist id="toStationListOptions">
+            </datalist>
+
+            <label for="dateInput" class="input-group-text bg-dark text-light">Дата отправления</label>
+            <input class="form-control" type="text" id="dateInput" placeholder="Выберите дату..." autocomplete="off">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <table class="table table table-dark table-hover">
+            <thead>
+            <tr>
+                <th scope="col">
+                    #
+                </th>
+                <th scope="col">
+                    Отправление
+                </th>
+                <th scope="col">
+                    Прибытие
+                </th>
+                <th scope="col">
+                    Рейс
+                </th>
+                <th scope="col">
+                </th>
+            </tr>
+            </thead>
+            <tbody id="board-tbody">
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+    <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header bg-dark text-light">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-circle text-danger" viewBox="0 0 16 16">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
+            </svg>
+            <strong class="me-auto">&nbsp;Уведомление</strong>
+            <small></small>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+        </div>
+    </div>
+</div>
+<script src="js/script.js"></script>
+</body>
+</html>

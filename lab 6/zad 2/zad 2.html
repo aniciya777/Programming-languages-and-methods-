@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Задание 2</title>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/jquery-ui/jquery-ui.min.js"></script>
+    <script src="js/jquery.mask.js"></script>
+    <script src="js/data.js"></script>
+    <link rel="stylesheet" href="js/jquery-ui/jquery-ui.min.css">
+    <link rel="stylesheet" href="js/jquery-ui/jquery-ui.structure.min.css">
+    <link rel="stylesheet" href="js/jquery-ui/jquery-ui.theme.min.css">
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+<h1>
+    Задание 2.
+</h1>
+<h3>
+    (5 баллов)
+</h3>
+<p>
+    Создать модальный диалог для внесения данных в таблицу о товарах,
+    сотрудниках книг в библиотеку и т. п. (выбрать что-то одно.)
+</p>
+<hr>
+
+<div id="dialog-form" title="Добавление нового товара">
+    <p class="validateTips">Все поля обязательны.</p>
+    <form>
+        <fieldset>
+            <label for="name">Название</label>
+            <input type="text" name="Название" id="name" class="text ui-widget-content ui-corner-all">
+            <label for="consists">Состав</label>
+            <input type="text" name="consists" id="consists" class="text ui-widget-content ui-corner-all">
+            <label for="price">Стоимость</label>
+            <input type="text" name="price" id="price" value="0.00" class="text ui-widget-content ui-corner-all">
+
+            <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+        </fieldset>
+    </form>
+</div>
+
+<div id="rolls-contain" class="ui-widget">
+    <h1>Каталог ресторана:</h1>
+    <table id="rolls" class="ui-widget ui-widget-content">
+        <thead>
+            <tr class="ui-widget-header ">
+                <th>ID</th>
+                <th>Название</th>
+                <th>Состав</th>
+                <th>Стоимость</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>
+<button id="create-roll">Добавить новый товар</button>
+
+<script src="js/script.js"></script>
+</body>
+</html>

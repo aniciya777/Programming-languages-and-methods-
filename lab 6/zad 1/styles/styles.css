@@ -1,0 +1,32 @@
+button {
+    font-size: 12pt;
+    border: solid 1px #4936c1;
+    border-radius: 5px;
+    padding: 5px 30px;
+    color: white;
+    background-color: #007fff;
+    margin: 15px auto;
+    box-shadow: black 1px 2px 8px 1px;
+    display: block;
+}
+
+table, #address, .w100 {
+    width: 100%;
+}
+
+#total_price div {
+    margin: 5px auto;
+    width: fit-content;
+}
+
+#orders_table {
+    border-collapse: collapse;
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+#orders_table td, #orders_table th {
+    border: solid #5c5c5c 1px;
+    padding: 2px 5px;
+}

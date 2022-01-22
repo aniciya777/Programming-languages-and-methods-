@@ -1,0 +1,15 @@
+.images_container {
+    position: relative;
+}
+
+.images_container img {
+    transform: scale(0.5);
+    -webkit-transition: all 0.2s ease-in 0s;
+    -moz-transition: all 0.2s ease-in 0s;
+    -o-transition: all 0.2s ease-in 0s;
+    transition: all 0.2s ease-in 0s;
+}
+
+.images_container img.orig_size {
+    transform: scale(1);
+}

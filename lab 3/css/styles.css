@@ -1,0 +1,57 @@
+.train_station {
+    display: block;
+    margin-top: 2px;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 20px;
+}
+
+.train_time {
+    font-size: 22px;
+    line-height: 26px;
+    font-weight: 700;
+}
+
+.train_date {
+    font-size: 13px;
+    line-height: 18px;
+    margin-left: 8px;
+    order: 1;
+    font-weight: 400;
+}
+
+.train_datetime {
+    display: flex;
+}
+
+.train_duration {
+    font-weight: 500;
+}
+
+.train_price {
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 26px;
+    white-space: nowrap;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+button.train_buy {
+    width: 100%;
+    max-width: 150px;
+    white-space: nowrap;
+    border: solid 1px white;
+    border-radius: 12px;
+    padding: 5px;
+    font-size: 14pt;
+    background: linear-gradient(
+            135deg, #ff807a, #88b5fa);
+    font-weight: 500;
+    margin: 0 auto;
+    display: block;
+}
+
+button.train_buy:hover {
+    background: #ff807a;
+}
